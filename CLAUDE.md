@@ -63,4 +63,5 @@ One breakpoint (around `max-width: 800px`); the page must be readable on a phone
 - All four instructor fields (name, email, office, office hours) are intentionally `TBD` at Kevin's request; fill them in when known.
 - The weekly schedule topics are drafted Claude-coding topics (Claude Code, CLAUDE.md, MCP, subagents/skills/hooks, API/Agent SDK) and the due items are placeholders (3 assignments, 3 quizzes, midterm in week 8, final project in week 14); confirm with Kevin.
 - Class meets Mon & Wed starting 10:00 AM (end time not yet given).
-- Class end time, description, grade weights, and policy text are still placeholders until Kevin supplies them.
+- The grading table descriptions are filled in (drafted by Claude to match the schedule: 3 quizzes, 3 assignments, midterm week 8, final project with proposal week 11 and presentation week 14). The weights (10/15/25/20/30) are the original placeholders, so confirm them with Kevin.
+- Class end time, course description, and policy text are still placeholders until Kevin supplies them.
