@@ -1,0 +1,323 @@
+/* Classic Ivy League academic style: white page, crimson accent, serif type,
+   hairline rules, numbered sections. */
+
+/* ---------- Theme ---------- */
+:root {
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --paper: #ffffff;
+  --crimson: #a51c30;
+  --crimson-dark: #7d1424;
+  --rule: #d6d3cc;
+  --tint: #f7f5f1;
+
+  --display: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, "Times New Roman", serif;
+  --body: Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  --label: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --max: 46rem;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a { color: var(--crimson); text-underline-offset: 0.18em; }
+a:hover { color: var(--crimson-dark); }
+
+:focus-visible {
+  outline: 3px solid var(--crimson);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -4rem;
+  background: var(--crimson);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-family: var(--label);
+  z-index: 10;
+}
+.skip:focus { top: 0; color: #fff; }
+
+/* ---------- Masthead & nav ---------- */
+.masthead {
+  border-top: 8px solid var(--crimson);
+  text-align: center;
+}
+
+.masthead > .wrap { padding-top: 3rem; padding-bottom: 1.5rem; }
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: var(--label);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  display: inline-block;
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--crimson);
+  font-family: var(--label);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 2rem;
+  margin: 0;
+  padding: 0.75rem 0;
+  list-style: none;
+}
+
+.nav a {
+  font-family: var(--label);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--crimson); border-bottom-color: var(--crimson); }
+
+/* ---------- Sections ---------- */
+main {
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+  counter-reset: sec;
+}
+
+section { padding: 2.25rem 0 0.5rem; counter-increment: sec; }
+section + section { margin-top: 1rem; }
+
+h2 {
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+h2::before {
+  content: counter(sec) ".";
+  display: inline-block;
+  min-width: 2rem;
+  color: var(--crimson);
+}
+
+h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-family: var(--label);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+p { margin: 0 0 1rem; }
+
+ol { padding-left: 1.5rem; margin: 0 0 1rem; }
+li { margin-bottom: 0.4rem; padding-left: 0.25rem; }
+li::marker { color: var(--crimson); font-weight: 700; }
+
+/* ---------- Course details (two plain columns, no boxes) ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 0 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card { min-width: 0; }
+.card h3 { margin-top: 0.25rem; }
+
+dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+dt, dd {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+dt {
+  padding-right: 1.25rem;
+  font-family: var(--label);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 2.1;
+}
+dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- Tables (rules only, no fills) ---------- */
+.table-scroll {
+  overflow-x: auto;
+  margin: 0.5rem 0 1.25rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+caption {
+  text-align: left;
+  font-family: var(--label);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0 0.5rem;
+}
+
+th, td {
+  padding: 0.6rem 0.85rem 0.6rem 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+
+thead th {
+  font-family: var(--label);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  border-bottom: 1px solid var(--ink);
+}
+
+tbody th { font-weight: 700; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+
+tfoot th, tfoot td {
+  font-weight: 700;
+  border-top: 1px solid var(--ink);
+  border-bottom: 0;
+}
+
+.schedule th:first-child { width: 4.5rem; color: var(--crimson); }
+.schedule thead th:nth-child(3),
+.schedule td:nth-child(3) { width: 9rem; }
+
+.num { text-align: right; white-space: nowrap; padding-right: 0; }
+.scale td.num { padding-right: 1.5rem; }
+.scale td.num:last-child { padding-right: 0; }
+
+/* ---------- Policies ---------- */
+.policy {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.policy:last-child { border-bottom: 0; }
+.policy h3 { margin-top: 1.25rem; }
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--label);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1.25rem 0 2.5rem;
+}
+.footer p { margin: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  body { font-size: 1.0625rem; }
+  .cards { grid-template-columns: 1fr; gap: 1.5rem 0; }
+  .masthead > .wrap { padding-top: 2rem; }
+  h2 { font-size: 1.4rem; }
+  th, td { padding-right: 0.6rem; }
+  .nav ul { gap: 0.25rem 1.25rem; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.45; }
+
+  .skip, .nav { display: none; }
+
+  .masthead { border-top: 4px solid #000; }
+  .masthead > .wrap { padding-top: 1rem; padding-bottom: 0.75rem; }
+  .eyebrow, .tagline, h2::before, h3, thead th, li::marker { color: #000; }
+  .tagline { border-top-color: #000; }
+
+  h2, h3 { break-after: avoid; }
+  section { padding-top: 1rem; }
+
+  .card, .policy, tr, caption { break-inside: avoid; }
+
+  .table-scroll { overflow: visible; }
+
+  a { color: #000; text-decoration: none; }
+  a[href^="mailto:"]::after,
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
+
+  .footer { color: #000; }
+}
