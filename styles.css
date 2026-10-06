@@ -8,6 +8,10 @@
   --paper: #ffffff;
   --crimson: #a51c30;
   --crimson-dark: #7d1424;
+  --night: #120b2e;
+  --gold: #d4a017;
+  --gold-light: #f6d365;
+  --gold-deep: #a87b0a;
   --rule: #d6d3cc;
   --tint: #f7f5f1;
 
@@ -63,20 +67,51 @@ a:hover { color: var(--crimson-dark); }
 
 /* ---------- Masthead & nav ---------- */
 .masthead {
-  border-top: 8px solid var(--crimson);
+  border-top: 8px solid var(--gold);
+  border-image: linear-gradient(90deg, var(--gold-deep), var(--gold-light), var(--gold-deep), var(--gold-light)) 1;
   text-align: center;
 }
 
-.masthead > .wrap { padding-top: 3rem; padding-bottom: 1.5rem; }
+/* Glitzy midnight hero: gold shimmer title, twinkling sparkles. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(240, 200, 90, 0.28), transparent 60%),
+    radial-gradient(circle at 15% 20%, rgba(165, 28, 48, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(90, 70, 200, 0.30), transparent 45%),
+    var(--night);
+}
+
+.hero > .wrap {
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 2.25rem;
+}
+
+.sparkle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  font-size: var(--s);
+  line-height: 1;
+  color: var(--gold-light);
+  text-shadow: 0 0 10px var(--gold), 0 0 22px rgba(240, 200, 90, 0.6);
+  animation: twinkle 3.2s ease-in-out var(--d) infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.6) rotate(0deg); }
+  50%      { opacity: 1;    transform: scale(1.15) rotate(45deg); }
+}
 
 .eyebrow {
-  margin: 0 0 1rem;
-  font-family: var(--label);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--crimson);
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.4em;
+  color: var(--gold-light);
+  text-shadow: 0 0 12px var(--gold);
 }
 
 h1 {
@@ -84,20 +119,47 @@ h1 {
   font-family: var(--display);
   font-size: clamp(2.2rem, 6vw, 3.4rem);
   line-height: 1.1;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.01em;
+  color: var(--gold-light); /* fallback if background-clip is unsupported */
+  background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold-light) 25%, #fff6d6 40%, var(--gold-light) 55%, var(--gold-deep) 80%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+  filter: drop-shadow(0 2px 14px rgba(240, 200, 90, 0.35));
+}
+
+@keyframes shimmer {
+  from { background-position: 100% 0; }
+  to   { background-position: -150% 0; }
+}
+
+.cover {
+  margin: 2rem 0 0;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+  border-radius: 4px;
+  box-shadow: 0 0 28px rgba(240, 200, 90, 0.35), 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
 }
 
 .tagline {
   display: inline-block;
   margin: 1rem 0 0;
   padding-top: 0.75rem;
-  border-top: 2px solid var(--crimson);
+  border-top: 2px solid var(--gold);
   font-family: var(--label);
   font-size: 0.8rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #e7e1cf;
 }
 
 .nav {
@@ -141,7 +203,8 @@ section + section { margin-top: 1rem; }
 h2 {
   margin: 0 0 1.25rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 2px solid var(--gold);
+  border-image: linear-gradient(90deg, var(--gold-deep), var(--gold-light) 40%, transparent) 1;
   font-family: var(--display);
   font-size: 1.6rem;
   font-weight: 400;
@@ -165,6 +228,7 @@ h3 {
 }
 
 p { margin: 0 0 1rem; }
+.todo { color: var(--muted); font-style: italic; }
 
 ol { padding-left: 1.5rem; margin: 0 0 1rem; }
 li { margin-bottom: 0.4rem; padding-left: 0.25rem; }
@@ -285,7 +349,7 @@ tfoot th, tfoot td {
 @media (max-width: 800px) {
   body { font-size: 1.0625rem; }
   .cards { grid-template-columns: 1fr; gap: 1.5rem 0; }
-  .masthead > .wrap { padding-top: 2rem; }
+  .hero > .wrap { padding-top: 2rem; }
   h2 { font-size: 1.4rem; }
   th, td { padding-right: 0.6rem; }
   .nav ul { gap: 0.25rem 1.25rem; }
@@ -303,10 +367,14 @@ tfoot th, tfoot td {
 
   .skip, .nav { display: none; }
 
-  .masthead { border-top: 4px solid #000; }
-  .masthead > .wrap { padding-top: 1rem; padding-bottom: 0.75rem; }
-  .eyebrow, .tagline, h2::before, h3, thead th, li::marker { color: #000; }
+  .masthead { border-top: 4px solid #000; border-image: none; }
+  .hero { background: none; overflow: visible; }
+  .hero > .wrap { padding-top: 1rem; padding-bottom: 0.75rem; }
+  .sparkle, .eyebrow, .cover { display: none; }
+  h1 { background: none; -webkit-text-fill-color: #000; color: #000; filter: none; animation: none; }
+  .tagline, h2::before, h3, thead th, li::marker { color: #000; }
   .tagline { border-top-color: #000; }
+  h2 { border-image: none; border-bottom: 1px solid #000; }
 
   h2, h3 { break-after: avoid; }
   section { padding-top: 1rem; }

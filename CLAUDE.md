@@ -10,6 +10,7 @@ A single-page course syllabus website. Plain HTML + CSS only: no JavaScript, no 
 
 - `index.html` — the entire page.
 - `styles.css` — all styling, including the `@media print` block.
+- `claude-mobile.png` — hero cover image (halftone statue with code-reflecting glasses), from an Every (every.to) post cover. Shown in a gold frame under the title (`figure.cover`), hidden in print. Kevin supplied it; he is responsible for usage rights.
 
 (Update this section when files are added.)
 
@@ -58,8 +59,8 @@ One breakpoint (around `max-width: 800px`); the page must be readable on a phone
 
 ## Known open items
 
-- Course is "AI Bootcamp" at Baruch College, Room 212. Learning objectives are generic AI-course text.
-- The instructor email `kevin.nicholas@example.edu` is fake (example.edu is a reserved domain); replace it with the real address before publishing.
-- The weekly schedule topics and due items are generic AI-bootcamp placeholders (3 assignments, 3 quizzes, midterm in week 8, final project in week 14); confirm with Kevin.
-- Instructor is Kevin Nicholas; class meets Mon & Wed starting 6:00 PM (end time not yet given).
-- Course code, term, class end time, office and office hours, description, grade weights, and policy text are still placeholders until Kevin supplies them.
+- Course is "Claude Coding Bootcamp", held at Noble Desktop, Fall term (no year given). Kevin asked to remove the Baruch College name, Room 212, and the course code; don't re-add them. The masthead is a glitzy midnight `.hero` (gold shimmer `h1`, twinkling `.sparkle` spans, gold rules) over the otherwise classic page; print and reduced-motion blocks flatten it. The Learning Objectives list is intentionally empty (a `.todo` placeholder line); Kevin will supply the goals.
+- All four instructor fields (name, email, office, office hours) are intentionally `TBD` at Kevin's request; fill them in when known.
+- The weekly schedule topics are drafted Claude-coding topics (Claude Code, CLAUDE.md, MCP, subagents/skills/hooks, API/Agent SDK) and the due items are placeholders (3 assignments, 3 quizzes, midterm in week 8, final project in week 14); confirm with Kevin.
+- Class meets Mon & Wed starting 10:00 AM (end time not yet given).
+- Class end time, description, grade weights, and policy text are still placeholders until Kevin supplies them.
