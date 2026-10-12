@@ -10,6 +10,7 @@ A single-page course syllabus website. Plain HTML + CSS only: no JavaScript, no 
 
 - `index.html` — the entire page.
 - `styles.css` — all styling, including the `@media print` block.
+- `README.md` — public-facing overview: sections, how to view and edit each term, design notes, and the list of placeholders still to fill. Keep it in sync when sections, files, or placeholders change.
 - `claude-mobile.png` — hero cover image (halftone statue with code-reflecting glasses), from an Every (every.to) post cover. Shown in a gold frame under the title (`figure.cover`), hidden in print. Kevin supplied it; he is responsible for usage rights.
 
 (Update this section when files are added.)
